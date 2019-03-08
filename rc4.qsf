@@ -912,8 +912,13 @@ set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
 set_global_assignment -name VERILOG_SHOW_LMF_MAPPING_MESSAGES OFF
 set_global_assignment -name SYNCHRONIZER_IDENTIFICATION AUTO
 set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
+set_global_assignment -name VERILOG_FILE generate_clk.v
 set_global_assignment -name VERILOG_FILE SevenSegmentDisplayDecoder.v
 set_global_assignment -name SDC_FILE timing_constraints.sdc
 set_global_assignment -name QIP_FILE s_memory.qip
 set_global_assignment -name SYSTEMVERILOG_FILE ksa.sv
+set_global_assignment -name SYSTEMVERILOG_FILE init_array.sv
+set_global_assignment -name SYSTEMVERILOG_FILE loop2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE RAMfiller.sv
+set_global_assignment -name CDF_FILE ../Chain1.cdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
