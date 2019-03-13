@@ -8,9 +8,9 @@ input logic [23:0]secret_key,
 output logic [7:0]data_out,
 output logic [7:0]address_out,
 output logic wren,
-output logic [7:0] i);
+output logic done);
 	
-//	logic [7:0]i;
+ 	logic [7:0]i;
 	logic [7:0]j;
 	logic [7:0]s_i;
 	logic [7:0]s_j;
@@ -23,6 +23,7 @@ output logic [7:0] i);
 	assign secret_key_array[2] = secret_key[7:0];
 	
 	assign wren = state[0];
+	assign done = state[5];
 	
 	parameter idle                   = 9'b00000001_0;
 	parameter get_s_i1               = 9'b00000010_0;
@@ -33,11 +34,11 @@ output logic [7:0] i);
 	parameter get_s_j1               = 9'b00000110_0;
 	parameter wait2                  = 9'b00000111_0;
 	parameter get_s_j2               = 9'b00001000_0;
-	parameter write_en_i					= 9'b00010000_1; 
+	parameter write_en_i					= 9'b00000000_1; 
 	parameter swap1                  = 9'b00001001_1;
 	parameter swap2                  = 9'b00001010_1;
 	parameter swap3                  = 9'b00001011_1;
-	parameter increment              = 9'b00001111_0;
+	parameter increment              = 9'b00001111_1;
 	parameter chill                  = 9'b00010000_0;
 	
 	always_ff @(posedge clk) begin
